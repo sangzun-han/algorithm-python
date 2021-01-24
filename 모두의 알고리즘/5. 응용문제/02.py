@@ -11,6 +11,8 @@ def weigh(a,b,c,d):
 def find_fakecoin(left, right):
   for i in range(left+1, right+1):
     result = weigh(left, left, i, i)
+    if left == right:
+      return left
     if result == -1:
       return left
     elif result == 1:
