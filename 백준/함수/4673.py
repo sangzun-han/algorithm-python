@@ -3,7 +3,6 @@ rmv = set()
 for i in range(1,10001):
   for j in str(i):
     i = i+int(j)
-    print(i)
   rmv.add(i)
 num = num - rmv
 for k in sorted(num):
