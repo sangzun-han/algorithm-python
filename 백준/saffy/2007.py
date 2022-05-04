@@ -1,6 +1,6 @@
 n = int(input())
 
-for i in range(n):
+for k in range(n):
     pascal = []
     t = int(input())
 
@@ -13,5 +13,8 @@ for i in range(n):
                 temp.append(pascal[i-1][j] + pascal[i-1][j-1])
         pascal.append(temp)
 
-
-print(pascal)
+    print("#{}".format(k+1))
+    for datas in pascal:
+        for data in datas:
+            print(data, end=' ')
+        print()
