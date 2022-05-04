@@ -1,20 +1,19 @@
-n = int(input())
+t = int(input())
+for i in range(t):
+    max_value = 0
+    table = []
+    n, m = map(int, input().split())
 
-for k in range(n):
-    pascal = []
-    t = int(input())
+    for j in range(n):
+        data = list(map(int, input().split()))
+        table.append(data)
 
-    for i in range(t):
-        temp = []
-        for j in range(i+1):
-            if j == 0 or j == i:
-                temp.append(1)
-            else:
-                temp.append(pascal[i-1][j] + pascal[i-1][j-1])
-        pascal.append(temp)
-
-    print("#{}".format(k+1))
-    for datas in pascal:
-        for data in datas:
-            print(data, end=' ')
-        print()
+    for k in range(n-m+1):
+        for l in range(n-m+1):
+            value = 0
+            for q in range(k, k+m):
+                for r in range(l, l+m):
+                    value += table[q][r]
+            max_value = max(max_value, value)
+    print("#{}".format(i+1), end=' ')
+    print(max_value)
