@@ -1,32 +1,33 @@
-def dfs(count):
+def dfs(change):
     global answer
 
-    if count == 0:
-        temp = int(''.join(values))
+    if change == 0:
+        temp = int(''.join(money))
 
         if answer < temp:
             answer = temp
-        return
+        return answer
+
     for i in range(length):
         for j in range(i+1, length):
-            values[i], values[j] = values[j], values[i]
-            temp_key = ''.join(values)
+            money[i], money[j] = money[j], money[i]
+            money_key = ''.join(money)
 
-            if visited.get((temp_key, count-1), 1):
-                visited[(temp_key, count-1)] = 0
-                dfs(count - 1)
-            values[i], values[j] = values[j], values[i]
+            if visited.get((money_key, change-1), 1):
+                visited[(money_key, change-1)] = 0
+                dfs(change-1)
+            else:
+                money[i], money[j] = money[j], money[i]
 
 
-for t in range(int(input())):
+t = int(input())
+
+for tc in range(t):
     answer = -1
-    value, change = input().split()
-    # 바꾸기 편하려고 리스트화시킴
-    values = list(value)
+    money, change = input().split()
+    money = list(money)
     change = int(change)
-    # 계속 쓸꺼니까 캐스팅
-    length = len(values)
-    # 가지치기용 딕셔너리
+    length = len(money)
     visited = {}
     dfs(change)
-    print('#{} {}'.format(t+1, answer))
+    print(f'# {tc+1} {answer}')
