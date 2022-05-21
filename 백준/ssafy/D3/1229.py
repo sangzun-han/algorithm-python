@@ -10,6 +10,11 @@ for tc in range(10):
             repeat = int(cmd[i+2])
             for j in range(repeat):
                 pwd.insert(pos+j, int(cmd[i+j+3]))
+        elif cmd[i] == 'D':
+            pos = int(cmd[i+1])
+            repeat = (int(cmd[i+2]))
+            for j in range(repeat):
+                del pwd[pos]
 
     print(f"#{tc+1}", end=' ')
     for i in range(10):
