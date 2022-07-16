@@ -7,7 +7,7 @@ bfs_visited = [0] * (n+1)
 for _ in range(m):
     x, y = map(int, input().split())
     graph[x][y] = graph[y][x] = 1
-    graph2[x][y] = graph[y][x] = 1
+    graph2[x][y] = graph2[y][x] = 1
 
 
 def dfs(v):
@@ -25,11 +25,12 @@ def bfs(v):
     while queue:
         v = queue.pop(0)
         print(v, end=' ')
-        for i in range(1, n+1):
+        for i in range(0, n+1):
             if bfs_visited[i] == 0 and graph2[v][i] == 1:
                 queue.append(i)
                 bfs_visited[i] = 1
 
 
 dfs(v)
+print()
 bfs(v)
