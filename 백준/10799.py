@@ -10,5 +10,6 @@ for i in range(length):
             stack.pop()
             ans += len(stack)
         else:
-            ans += len(stack)
+            stack.pop()
+            ans += 1
 print(ans)
